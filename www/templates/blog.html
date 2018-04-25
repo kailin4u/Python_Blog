@@ -2,7 +2,7 @@
 {% block title %}{{ blog.title }}{% endblock %}
 {% block script %}
 <script type="text/javascript">
-    var comment_url = '/api/blogs/{{ blog.id }}/comments';
+    var comment_url = '/api/blog/{{ blog.id }}/comment';
     $(function () {
         var $form = $('#form-comment');
         $form.submit(function (e) {
