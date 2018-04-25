@@ -463,8 +463,8 @@ async def api_delete_blog(request, *, id):
 @post('/api/blog/{id}/comment')
 async def api_create_comment(id, request, *, content):
     user = request.__user__
-    if user is None or not user.admin:
-        raise APIPermissionError('Only admin can do this!')
+    if user is None:
+        raise APIPermissionError('plz login befor comment!')
     if not content or not content.strip():
         raise APIValueError('comment', 'Comment can not be empty.')
     blog = await Blog.find(id)
